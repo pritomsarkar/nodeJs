@@ -11,7 +11,7 @@ const router = express.Router();
 
 router.get('/', async function (req, res, next) {
     try {
-        let email = req.body.emailId;
+        let email = req.body.email;
         let password = req.body.passWord;
         let result;
         let validate = validation.validateLogin(email, password);

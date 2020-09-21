@@ -3,10 +3,11 @@ const validator = require('express-joi-validation').createValidator({})
 
 const keyType = Joi.required();
 const stringType = Joi.string().required().strict();
+const emailType = Joi.string().email({ tlds: { allow: false } });
 
 
 const loginSchema = Joi.object().keys({
-    email: stringType,
+    email: emailType,
     passWord: stringType
 });
 
