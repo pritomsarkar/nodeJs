@@ -3,18 +3,19 @@ const validator = require('express-joi-validation').createValidator({})
 
 const keyType = Joi.required();
 const stringType = Joi.string().required().strict();
+const emailType = Joi.string().email({ tlds: { allow: false } });
 
 
 const loginSchema = Joi.object().keys({
-    userName: stringType,
+    email: emailType,
     passWord: stringType
 });
 
-module.exports.validateLogin = function (userName, passWord) {
+module.exports.validateLogin = function (email, passWord) {
     try {
         let validationRes = {};
         let validationObj = {
-            "userName": userName,
+            "email": email,
             "passWord": passWord
         };
         let validation = loginSchema.validate(validationObj);

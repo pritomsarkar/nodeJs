@@ -11,16 +11,16 @@ const router = express.Router();
 
 router.get('/', async function (req, res, next) {
     try {
-        let userName = req.body.userName;
+        let email = req.body.email;
         let password = req.body.passWord;
         let result;
-        let validate = validation.validateLogin(userName, password);
+        let validate = validation.validateLogin(email, password);
         if (validate.isValid) {
-            let checkUserPassword = await utils.checkUserLogin(userName, password);
+            let checkUserPassword = await utils.checkUserLogin(email, password);
             if (checkUserPassword !== "Invaild") {
                 result = checkUserPassword;
             } else {
-                result = "UserName Or Password Not Vaild";
+                result = "Email Id Or Password Not Vaild";
             }
         } else {
             result = "Validation Failed";

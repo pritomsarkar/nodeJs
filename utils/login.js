@@ -1,8 +1,8 @@
 let loginQuery = require('../queries/loginQuery');
 
-module.exports.checkUserLogin = async function (userName, password) {
+module.exports.checkUserLogin = async function (email, password) {
     try {
-        let userExsist = await loginQuery.checkUserPassword(userName, password);
+        let userExsist = await loginQuery.checkUserPassword(email, password);
         if (userExsist.length > 0) {
             return userExsist[0];
         } else {

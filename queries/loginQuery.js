@@ -1,9 +1,9 @@
 const db = require('./dbConncetions');
 
-module.exports.checkUserPassword = async function (userName, password) {
+module.exports.checkUserPassword = async function (email, password) {
     try {
         let query = `For doc in users
-                     filter doc.user_name == "${userName}" AND doc.password == "${password}"
+                     filter doc.email_id == "${email}" AND doc.password == "${password}"
                      return doc`;
         let result = await db.query(query);
         return result._result;
