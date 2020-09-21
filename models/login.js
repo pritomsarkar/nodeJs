@@ -6,15 +6,15 @@ const stringType = Joi.string().required().strict();
 
 
 const loginSchema = Joi.object().keys({
-    userName: stringType,
+    email: stringType,
     passWord: stringType
 });
 
-module.exports.validateLogin = function (userName, passWord) {
+module.exports.validateLogin = function (email, passWord) {
     try {
         let validationRes = {};
         let validationObj = {
-            "userName": userName,
+            "email": email,
             "passWord": passWord
         };
         let validation = loginSchema.validate(validationObj);
