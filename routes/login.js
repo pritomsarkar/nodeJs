@@ -11,6 +11,7 @@ const router = express.Router();
 
 router.get('/', async function (req, res, next) {
     try {
+        // login api
         let email = req.body.email;
         let password = req.body.passWord;
         let result;
